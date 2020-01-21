@@ -17,7 +17,7 @@ Dim COL_IN_PREFECTURE As Long
 Dim COL_IN_CITY As Long
 Dim COL_IN_TOWN As Long
 Dim COL_IN_BUILDING As Long
-Dim COL_IN_ADDRESSLIST_FORHIBITED As Long
+Dim COL_IN_ADDRESSLIST_PROHIBITED As Long
 
 ' --- 入力行定義
 Const ROW_IN_DATA_START = 2
@@ -51,7 +51,7 @@ Sub tableToAddlessList()
     Do Until wsIn.Cells(rowNoIn, COL_IN_INDEX).Value = ""
         
         ' 出力禁止でなければ出力する
-        If wsIn.Cells(rowNoIn, COL_IN_ADDRESSLIST_FORHIBITED).Value <> "Y" Then
+        If wsIn.Cells(rowNoIn, COL_IN_ADDRESSLIST_PROHIBITED).Value <> "Y" Then
             Call writeAddress(wsIn, wsOut, rowNoIn, rowNoOut)
             rowNoOut = rowNoOut + 1
         End If
@@ -77,7 +77,7 @@ Function defineColNumber(wsIn As Worksheet, wsOut As Worksheet)
     i = i + 1: COL_IN_CITY = i
     i = i + 1: COL_IN_TOWN = i
     i = i + 1: COL_IN_BUILDING = i
-    i = i + 1: COL_IN_ADDRESSLIST_FORHIBITED = i
+    i = i + 1: COL_IN_ADDRESSLIST_PROHIBITED = i
     
     Dim j As Long: j = COL_OUT_ITEM_START
     j = j + 1: COL_OUT_NAME = j

@@ -16,7 +16,7 @@ Const COL_IN_PREFECTURE = 7
 Const COL_IN_CITY = 8
 Const COL_IN_TOWN = 9
 Const COL_IN_BUILDING = 10
-Const COL_IN_ADDRESSLIST_FORHIBITED = 11
+Const COL_IN_ADDRESSLIST_PROHIBITED = 11
 
 ' --- 入力行定義
 Const ROW_IN_DATA_START = 2
@@ -47,7 +47,7 @@ Sub tableToAddlessList()
     Do Until wsIn.Cells(rowNoIn, COL_IN_INDEX).Value = ""
         
         ' 出力禁止でなければ出力する
-        If wsIn.Cells(rowNoIn, COL_IN_ADDRESSLIST_FORHIBITED).Value <> "Y" Then
+        If wsIn.Cells(rowNoIn, COL_IN_ADDRESSLIST_PROHIBITED).Value <> "Y" Then
             Call writeAddress(wsIn, wsOut, rowNoIn, rowNoOut)
             rowNoOut = rowNoOut + 1
         End If
